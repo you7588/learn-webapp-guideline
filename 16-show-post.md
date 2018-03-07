@@ -1,6 +1,6 @@
 # 显示文章详情
 
-文章列表和编辑文章都已经构建好，在补充文章详情显示即可把整个操作环路打通。
+文章列表和编辑文章都已经构建好，再补充文章详情显示即可把整个操作环路打通。
 
 先设计一个显示文章详情的页面路由。
 
@@ -12,9 +12,16 @@ localhost:3000/posts/show?id=123456
 
 /posts/show是路由，query参数id是文章的id。
 
+在./route.page.js中引入./models/post.js模块
+
+```js
+var PostModel = require('./models/post');
+```
+
 在./route.page.js中
 
 ```js
+/* GET posts show page. */
 router.get('/posts/show', function (req, res, next) {
   var id = req.query.id;
 
@@ -48,7 +55,7 @@ router.get('/posts/show', function (req, res, next) {
 
 * 因为res.render\('show', {post}\)传入的数据是一个post对象，因此在show.ejs中解析数据时要用post.title和post.content来填充内容。
 
-接下来就要构建从文章列表点击跳转到文章详情的过去，只需要在post.ejs中把列表加上&lt;a&gt;跳转即可。
+接下来就要构建从文章列表点击跳转到文章详情的过去，只需要在posts.ejs中把列表加上&lt;a&gt;跳转即可。
 
 ```
 <div v-for="item in postsList">
@@ -75,7 +82,7 @@ router.get('/posts/show', function (req, res, next) {
 </script>
 ```
 
-## 事例
+## 实例
 
-参考事例 [first-app-sample-9](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-9)
+参考 [first-app-sample-9](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-9)
 

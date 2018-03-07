@@ -48,7 +48,7 @@ console.log(htmlContent);
 
 以上是官方给出的例子。
 
-#### 在first-app项目中引入marked模块
+#### 在first-app项目route.page.js中引入marked模块
 
 ```js
 var marked = require('marked');
@@ -57,6 +57,7 @@ var marked = require('marked');
 在res.render页面之前，先把post.content内容转化成html
 
 ```js
+/* GET posts show page. */
 router.get('/posts/show', function (req, res, next) {
   var id = req.query.id;
 
@@ -67,7 +68,7 @@ router.get('/posts/show', function (req, res, next) {
 });
 ```
 
-post的content内容已经被转换成html了，在show.ejs中要使用&lt;%- %&gt;，而不是&lt;%= %&gt;。&lt;%- %&gt;会内容当初html来显示。
+post的content内容已经被转换成html了，在show.ejs中要使用&lt;%- %&gt;，而不是&lt;%= %&gt;。&lt;%- %&gt;会把内容当成html来显示。
 
 ```html
 <div>
@@ -75,6 +76,9 @@ post的content内容已经被转换成html了，在show.ejs中要使用&lt;%- %&
   <div><%- post.content %></div>
 </div>
 ```
-## 事例
 
-参考事例 [first-app-sample-10](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-10)
+如果想漂亮地显示内容，请参考[附：漂亮地显示文章](https://github.com/xugy0926/learn-webapp-guideline/blob/master/pretty-post.md)
+
+## 实例
+
+参考 [first-app-sample-10](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-10)

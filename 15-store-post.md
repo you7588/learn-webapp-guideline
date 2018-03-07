@@ -86,10 +86,10 @@ router.get('/posts', function(req, res, next) {
 
     res.json({ success: true, postsList: posts });
   });
-})
+});
 ```
 
-至此，从用户发送提交文章请求到保存到数据库的通路就完成了。而且api/posts路由会从数据拉取文章列表并返回给用户。
+至此，从用户发送提交文章请求到保存到数据库的通路就完成了。而且api/posts路由会从数据库拉取文章列表并返回给用户。
 
 因为postsList是从数据库拉取的对象数组，所以在./views/posts.ejs中要修改以下操作。
 
@@ -101,7 +101,7 @@ router.get('/posts', function(req, res, next) {
 <p v-for="item in postsList">{{ item.title }}</p>
 ```
 
-## 事例
+## 实例
 
-参考事例 [first-app-sample-8](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-8)
+参考 [first-app-sample-8](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-8)
 

@@ -38,9 +38,9 @@
 ./public/stylesheets/style.css
 ```
 
-目录/public是WebAPP存放静态资源的地方。这些静态资源包含css文件、浏览器运行的js文件、图片文件等。静态资源不需要设置任何路由就能直接通过链接访问。
+目录`/public`是WebAPP存放静态资源的地方。这些静态资源包含css文件、浏览器运行的js文件、图片文件等。静态资源不需要设置任何路由就能直接通过链接访问。
 
-比如通过\`[http://localhost:3000/stylesheets/style.css\`](http://localhost:3000/stylesheets/style.css`) 可以在浏览器直接读取style.css，这样做的目的是方便浏览器再解析html页面时更方便得获得静态资源。
+比如通过\`[http://localhost:3000/stylesheets/style.css\`](http://localhost:3000/stylesheets/style.css) 可以在浏览器直接读取style.css，这样做的目的是方便浏览器在解析html页面时更方便地获得静态资源。
 
 #### /routes
 
@@ -52,7 +52,7 @@
 
 目录`./routes`是处理所有路由逻辑的地方。
 
-后面详细讲解了什么是路由。
+后面会详细讲解什么是路由。
 
 #### /views
 
@@ -73,9 +73,9 @@
 
 文件`./package.json`是整个WebApp的管理依赖包的地方。
 
-> 依赖包：当WebApp需要调用别人已经开发好的模块时，就需要将模块名和版本号写到到package.json里。这个模块就是WebAapp的依赖包，或称为依赖模块。
+> 依赖包：当WebApp需要调用别人已经开发好的模块时，就需要将模块名和版本号写到到package.json里。这个模块就是WebApp的依赖包，或称为依赖模块。
 
-除了管理依赖包，package.json还有WebAapp的名字和版本号信息。
+除了管理依赖包，package.json还有WebApp的名字和版本号信息。
 
 另外，还有一些脚本信息。比如，上一节提到的运行项目的指令。
 
@@ -89,7 +89,7 @@ npm start中的start就是在package.json中定义的一个脚本。
 
 每一个项目都是不同开发同学开发的，项目的入口文件可能都不同，如果大家都遵循一种原则，在package.json中配置好start的执行脚本，那么别人就知道直接执行npm start就可以运行项目了。
 
-如果有必要，还可以在"script"结构里扩展更多的脚本。
+如果有必要，还可以在"scripts"结构里扩展更多的脚本。
 
 #### 主程序文件
 

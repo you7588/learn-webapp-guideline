@@ -19,7 +19,7 @@
 [GET] /api/posts | 获取文章列表
 [POST] /api/posts/create | 提交新文章
 
-本节将对页面的结构进行串联，已达到更好的用户体验。
+本节将对页面的结构进行串联，以达到更好的用户体验。
 
 当要设计一个类似博客的客户端时，进入主页后，可以设计一个个人宣传页面，从个人宣传页面点击后进入到文章列表页面。文章列表页面不仅展示文章的列表，还会提供发表文章。点击文章列表的某个文章标题，可以直接进入到文章详情。
 
@@ -61,7 +61,7 @@ views/index.ejs
 
 在巨幕中有一个`<a>`标签，用于跳转到文章列表页面。
 
-#### 需改全局 `<body>` 的背景
+#### 修改全局 `<body>` 的背景
 
 在全局 body 里添加background，给所有页面添加一个背景图片，以保证页面更好看一些。
 
@@ -77,7 +77,7 @@ body {
 
 #### 修改文章列表样式
 
-用 bootstrap种的 [list-group](http://v3.bootcss.com/components/#list-group) 组件来展示文章的列表
+用 bootstrap 中的 [list-group](http://v3.bootcss.com/components/#list-group) 组件来展示文章的列表
 
 views/posts.ejs
 
@@ -144,9 +144,9 @@ views/show.ejs
 </div>
 ```
 
-## 事例
+## 实例
 
-参考事例 [first-app-sample-11](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-11)
+参考 [first-app-sample-11](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-11)
 
 
 

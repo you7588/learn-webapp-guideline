@@ -5,9 +5,9 @@
 假如想让localhost:3000/posts这个地址打开一个对应的页面。一般都按照以下顺序来操作。
 
 1. 添加一个处理/posts路由的文件。如：./routes/posts.js。
-2. 添加一个/posts路由对应的页面文件。如./views/posts.ejs。
-3. 在app.js中将/posts和./routes/posts.js进行关联。
-4. 在./routes/posts.js中把./views/posts.ejs页面返回给用户。
+1. 添加一个/posts路由对应的页面文件。如./views/posts.ejs。
+1. 在app.js中将/posts和./routes/posts.js进行关联。
+1. 在./routes/posts.js中把./views/posts.ejs页面返回给用户。
 
 ## 新建./routes/posts.js
 
@@ -23,7 +23,7 @@
 
 ##### 第一处：修改注释。
 
-/routes/posts.js是处理路由’/posts‘的逻辑，注释中的Get Home page要修改为Get posts page。这样就保证注释的正确性。当别人看你的代码时，就不会产生误会。
+/routes/posts.js是处理路由’/posts‘的逻辑，注释中的Get home page要修改为Get posts page。这样就保证注释的正确性。当别人看你的代码时，就不会产生误会。
 
 ##### 第二处：修改返回的页面
 
@@ -47,21 +47,21 @@
 
 1. 程序处理’/‘时，是怎么找到./routes/index.js的？这两者的关联性在哪里？如果知道关联性就能知道如何关联'/posts'
 
-2. routes/index.js中的res.render\(\)函数，为什么会把第一个参数‘index’认为是views/index.ejs？关联性在哪里？
+1. routes/index.js中的res.render\(\)函数，为什么会把第一个参数‘index’认为是views/index.ejs？关联性在哪里？
 
 在app.js中，引入./routes/posts.js文件，并赋值给变量posts。
 
-```
+```javascript
 var posts = require('./routes/posts');
 ```
 
 然后，将变量posts和路由'/posts'关联起来。
 
-```
+```javascript
 app.use('/posts', posts);
 ```
 
-require\(\)是nodejs的一个全局函数，专门用于引用内部文件（模块）。一个项目为了保证功能模块更清晰，会将不同的功能写在不同的文件里。比如，./app.js控制路由，./routes/index.js处理某个路由逻辑，当./app.js要调用./routes/index.js时，就必须先将./routes/index.js引入进来。并用赋值给变量index。
+require\(\)是node.js的一个全局函数，专门用于引用内部文件（模块）。一个项目为了保证功能模块更清晰，会将不同的功能写在不同的文件里。比如，./app.js控制路由，./routes/index.js处理某个路由逻辑，当./app.js要调用./routes/index.js时，就必须先将./routes/index.js引入进来，并赋值给变量index。
 
 ```
 var index = require('./routes/index');
@@ -76,7 +76,7 @@ var posts = require('./routes/posts');
 
 app.use\(\)函数可以接受两个参数，第一个参数表示路由，第二个参数表示该路由对应的处理模块。
 
-```
+```javascript
 app.use('/posts', posts);
 ```
 
@@ -86,21 +86,20 @@ app.use('/posts', posts);
 
 在./routes/posts.js中，res.render\(\)的第一个参数是'index'，如果把'index'直接改成'posts'是不是就可以了？答案是可以的。那为什么我输入'posts'就能关联到'./views/posts.ejs'这个文件呢？
 
-奥秘是在于在./app.js里，项目已经实现把./views这个路径告诉了app。
+奥秘在./app.js里，项目已经事先把./views这个路径告诉给app。
 
-```
+```javascript
 app.set('views', path.join(__dirname, 'views'));
 ```
 
 app.set\(\)函数可以把一个值设置给app，这行代码的意思就是把./views这个路径设置给'views'这个字符串对应的值。那么，在代码执行时，app只要取出字符串'views'对应的路径即可。
 
-所以，app是预先就知道了如果要找view相关的文件，就去./views的路径下找即可。现在，只需要把./routes/posts.js中的res.render\(\)函数的第一个参数'index'改成'posts'即可。
+所以，app是预先就知道了如果要找views相关的文件，就去./views的路径下找即可。现在，只需要把./routes/posts.js中的res.render\(\)函数的第一个参数'index'改成'posts'即可。
 
 #### 6. 预览结果
 
 重新运行first-app，输入localhost:3000/posts，页面和localhost:3000/一样了就说明成功为first-app添加了一个新的访问路由/posts。
 
-## 事例
+## 实例
 
-参考事例 [first-app-sample-3](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-3)
-
+参考 [first-app-sample-3](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-3)

@@ -1,34 +1,93 @@
-## Kitematic 
+## Docker
 
 
 Docker是一个应用容器引擎，开发者可以打包他们的应用及依赖包到一个可移植的容器中，也可以实现虚拟化，容器使用沙箱机制，因此不会污染电脑环境。
 
-(https://baike.baidu.com/item/Docker/13344470?fr=aladdin),更准确的定义参见[docker官网](https://www.docker.com/#/production)
+https://baike.baidu.com/item/Docker/13344470?fr=aladdin
 
-为了更方便的安装和使用Docker，推荐使用Kitematic客户端。
+更详细的定义参见[docker官网](https://www.docker.com/#/production)
 
-Kitematic 作用是方便你在Mac或Windows上使用Docker，是与Docker Toolbox捆绑在一起的传统解决方案
+你可能需要安装两个东西。
 
-- 可以自动安装设置Docker
-- 提供直观的图形用户界面
-- Kitematic与Docker Machine集成 提供VirtualBox VM，在本地安装Docker引擎
+#### 安装 [Docker for mac] or [Docker for windows]
 
-#### 下载Kitematic
-进入官方[下载链接](https://www.docker.com/products/docker-toolbox)页面，根据您的系统，选择Mac或Windows版本的进行下载
+https://www.docker.com/docker-mac
 
- ![](/assets/install-mongodb-1.png)
+上面是官网的下载链接，如果下载不了请参考[百度云盘](http://pan.baidu.com/s/1nvuu6qX)
 
-因为下载比较慢，我存了一份mac版的放在了百度云，有需要的可以[点击链接](http://pan.baidu.com/s/1dFtms0L)下载 密码:`umxh`
+道云有镜像可以让你快速下载，我把下载链接贴在这里。
 
-#### 安装
+道云在后面的设置加速器时会提到。你可以先根据需要安装。
 
-下载完成打开一路继续就安装好了。
- 
- ![](/assets/install-mongodb-2.png)
+| Mac用户                                    | Windows用户                                | 
+| ---------------------------------------- | ---------------------------------------- | 
+| [下载Docker for Mac](https://get.daocloud.io/docker-install/mac) | [下载Docker for Windows](https://get.daocloud.io/docker-install/windows) 
 
- 安装完毕有显示，左边图标表示 在终端快速启动Docker 右边图标表示 Kitematic Docker的管理工具
 
- 之后你可以在你的应用里找到这两个应用。
+
+#### 安装Kitematic
+
+安装Docker后并启动，在Docker的菜单里能看到“kitematic”选项，点击它会提示你下载kitematic。
+
+ ![](/assets/kitematic.png)
+
+如果下载不了请参考[百度云盘](http://pan.baidu.com/s/1nvuu6qX)
+
+#### 加速器
+
+都安装完后，下载镜像可能很慢。这时你需要一个加速器。
+
+https://www.daocloud.io/mirror#accelerator-doc
+
+参考链接的配置方式后，下载镜像会飞起来。
+
+1. 要加速，先登录。
+
+如果你没有登录，那么上面的链接，你是看不到链接的配置方式的，
+
+其实你打开的那个页面，让你登录的那个提示的位置，就是放置你的加速镜像地址以及配置方法的。
+
+因此你首先需要先注册一个账号。
+
+2. 登录之后
+
+重新打开<https://www.daocloud.io/mirror#accelerator-doc#accelerator-doc>翻到刚才的位置，就看到如何加速器地址和设置方法。
+
+每个用户都有自己专用的加速地址，以下例子的地址可能对你并不可用。因此请你使用自己的账号对应的加速器地址，mac用户和Windows用户，请优先使用docker for Mac 和 docker for Windows 配置。
+
+#### MacOS用户加速器设置
+
+右键点击桌面顶栏的 docker 图标，选择 Preferences ，在 Daemon或者Advanced 标签 下的 **Registry mirrors** 列表中加入下面的镜像地址:
+
+```
+http://49e8d00f.m.daocloud.io
+```
+
+点击 Apply & Restart 或者右下角的restart按钮使设置生效。
+
+#### Windows用户加速器设置
+
+在桌面右下角状态栏中右键 docker 图标，修改在 Docker Daemon 标签页中的 json ，把下面的地址:
+
+```
+http://49e8d00f.m.daocloud.io
+```
+
+加到"registry-mirrors"的数组里。点击 Apply 。
+
+
+
+#### Linux用户加速器设置
+
+在终端里执行下面的命令
+
+```
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://49e8d00f.m.daocloud.io
+```
+
+该脚本可以将 --registry-mirror 加入到你的 Docker 配置文件 /etc/docker/daemon.json 中。
+
+
 
 ## 安装mongodb
 
@@ -41,5 +100,5 @@ Kitematic 作用是方便你在Mac或Windows上使用Docker，是与Docker Toolb
 
  ![](/assets/install-mongodb-5.png)
 
- 右边出现的端口就是你在程序中要用的，每个人端口可能不一样。
+ 右边出现的端口就是你在程序中要用的，每个人端口可能不一样。如果端口不对，启动 WebAPP 时会连不上从而会报错。
 

@@ -4,7 +4,7 @@
 
 比如，在posts.js中我们给定一个列表postsList
 
-```
+```js
 router.get('/', function(req, res, next) {
   res.render('posts', { title: 'posts', postsList: ['文章1', '文章2', '文章3'] });
 });
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 在posts.ejs中，应该利用数据postsList来构建列表模板。
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,23 +30,23 @@ router.get('/', function(req, res, next) {
 </html>
 ```
 
-ejs模板文件中可以嵌入代码，但代码一定是写在&lt;% %&gt;中。下面归纳一些使用技巧。
+ejs模板文件中可以嵌入代码，但代码一定是写在&lt;% %&gt;中。下面归纳一些[使用技巧][1]。
 
 使用某个变量的值要用&lt;%= %&gt;
 
-```
+```html
 <title><%= title %></title>
 ```
 
 变量可以再计算
 
-```
+```html
 <title><%= title + ' page' %></title>
 ```
 
 执行某段代码用&lt;% %&gt;
 
-```
+```js
 <% for(var i = 0; i < postsList.length; i++) { %>
 <p><%= postsList[i] %></p>
 <% } %>
@@ -56,7 +56,9 @@ ejs模板文件中可以嵌入代码，但代码一定是写在&lt;% %&gt;中。
 
 ejs模板引擎针对学习者相对很友好，只是看上去有点乱而已。
 
-## 事例
+## 实例
 
-参考事例 [first-app-sample-4](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-4)
+参考 [first-app-sample-4](https://github.com/xugy0926/learn-webapp-sample/tree/master/first-app-sample-4)
+ 
+ [1]: http://ejs.co/
 

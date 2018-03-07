@@ -1,6 +1,6 @@
 # 持久化存储 - mongodb
 
-要把数据持久化就要用到数据库，比如sqllit，mysql等比较有名的数据库，除此之外，mongodb。在开发小型项目时mongodb足够用了，nodejs必须引用node-mongodb-native这个库来操作mongodb数据库，庆幸的是还可以通过mongoose，mongoose是mongodb数据库的模型工具库，专门为node.js设计，mongoose基于node-mongodb-native并工作在异步环境下，或者你可以直接认mongoose是node-mongodb-native的拓展库，相比操作node-mongodb-native，操作mongoose时可以简化不少代码。
+要把数据持久化就要用到数据库，比如sqlite，mysql等比较有名的数据库，除此之外，mongodb。在开发小型项目时mongodb足够用了，nodejs必须引用node-mongodb-native这个库来操作mongodb数据库，庆幸的是还可以通过mongoose，mongoose是mongodb数据库的模型工具库，专门为node.js设计，mongoose基于node-mongodb-native并工作在异步环境下，或者你可以直接认为mongoose是node-mongodb-native的拓展库，相比操作node-mongodb-native，操作mongoose时可以简化不少代码。
 
 mongoose官网[http://mongoosejs.com/](http://mongoosejs.com/)
 
@@ -19,7 +19,7 @@ mongoose官网[http://mongoosejs.com/](http://mongoosejs.com/)
 
 在本地安装数据库时都会污染电脑的环境，避免这种情况发生可以采用docker容器的方式来安装mongodb。但在在之前必须安装docker。
 
-在docker中安装mongodb可以参考[附: 用Docker安装mongodb]
+在docker中安装mongodb可以参考[附: 用Docker安装mongodb][1]
 
 ## 添加mongoose
 
@@ -50,7 +50,7 @@ mongoose.connect('mongodb://localhost:27017/firstapp', {
 
 ```js
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema,
+var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
     title: String,
@@ -99,7 +99,7 @@ PostModel.find({}, function (err, docs) {
 });
 ```
 
-也可以只查制定的一个
+也可以只查指定的一个
 
 ```js
 PostModel.findOne({_id: postId}, function (err, doc) {
@@ -129,3 +129,6 @@ PostModel.update({_id: postId}, { title: '修改标题', content: '修改内容'
 
 1. 新增内容，只需要把内容填入即可。
 2. 删、改、查这三个操作必须给定明确的条件，否则无法操作。
+
+
+  [1]: https://github.com/xugy0926/learn-webapp-guideline/blob/master/install-mongodb-from-docker.md

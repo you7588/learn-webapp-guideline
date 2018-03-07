@@ -24,7 +24,18 @@
 * [21.更好的API](21-good-api.md)
 * [22.更好的结果处理](22-good-result.md)
 * [23.停下来想一想](23-wait-and-think.md)
+* [24.添加导航条](24-add-navigationbar.md)
+* [25.添加账户系统](25-add-account.md)
+* [26.权限控制](26-permission.md)
+* [27.更好的错误中枢](27-good-error-handle.md)
+* [28.session和功能限制 - 12/10](28-session-and-permission.md)
+* [29.构建 babel 编译结构 - 12/20](29-babel.md)
+* [30.运用 es6 语法 - 12/20](30-use-es6.md)
+* [31.JWT - 12/25](31-jwt.md)
+* [32.分离路由和逻辑 - 12/25](32-route-classified-again.md)
+* [33.邮箱激活账号 - 18/1/20](33-active-account.md)
 * [附: 用Docker安装mongodb](install-mongodb-from-docker.md)
+* [附：漂亮地显示文章](pretty-post.md)
 * [关于作者](about-author.md)
 
 # 介绍
